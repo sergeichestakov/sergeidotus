@@ -24,10 +24,10 @@ export default function GameOverScreen() {
       <div className="text-center z-10 max-w-2xl mx-auto px-8">
         {/* Game Over Title */}
         <div className="mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg leading-tight">
             {isNewHighScore ? "🏆 VICTORY! 🏆" : "💥 MISSION END 💥"}
           </h1>
-          <p className="text-xl md:text-2xl text-yellow-300 font-semibold drop-shadow">
+          <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 font-semibold drop-shadow">
             {isNewHighScore 
               ? "NEW HIGH SCORE ACHIEVED!" 
               : "The Eagle has landed"}

@@ -325,12 +325,6 @@ export class GameEngine {
     this.enemies.forEach(enemy => enemy.render(this.ctx));
     this.player.render(this.ctx);
 
-    // Debug info (remove in production)
-    this.ctx.fillStyle = '#FFFFFF';
-    this.ctx.font = '12px monospace';
-    this.ctx.fillText(`Enemies: ${this.enemies.length}`, 10, this.canvas.height - 60);
-    this.ctx.fillText(`Bullets: ${this.bullets.length}`, 10, this.canvas.height - 45);
-    this.ctx.fillText(`Particles: ${this.particles.length}`, 10, this.canvas.height - 30);
-    this.ctx.fillText(`FPS: ${Math.round(1000 / (performance.now() - this.lastTime))}`, 10, this.canvas.height - 15);
+
   }
 }
