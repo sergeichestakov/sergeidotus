@@ -20,7 +20,7 @@ export const useGameStats = create<GameStatsState>()(
     score: 0,
     lives: 3,
     level: 1,
-    highScore: parseInt(localStorage.getItem('eagle-strike-high-score') || '0'),
+    highScore: parseInt(localStorage.getItem('sergei-us-high-score') || '0'),
     
     addScore: (points) => {
       set((state) => {
@@ -28,7 +28,7 @@ export const useGameStats = create<GameStatsState>()(
         
         // Update high score if needed
         if (newScore > state.highScore) {
-          localStorage.setItem('eagle-strike-high-score', newScore.toString());
+          localStorage.setItem('sergei-us-high-score', newScore.toString());
           return { score: newScore, highScore: newScore };
         }
         
@@ -53,7 +53,7 @@ export const useGameStats = create<GameStatsState>()(
     },
     
     setHighScore: (score) => {
-      localStorage.setItem('eagle-strike-high-score', score.toString());
+      localStorage.setItem('sergei-us-high-score', score.toString());
       set({ highScore: score });
     }
   }))
