@@ -49,8 +49,10 @@ function App() {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-red-800 to-blue-900">
         <div className="text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">sergei.us 🦅</h1>
-          <p className="text-xl text-yellow-300">Loading Patriotic Defense System...</p>
+          <h1 className="text-6xl md:text-8xl font-bold mb-4 drop-shadow-lg">
+            <span className="text-red-500">sergei</span><span className="text-white">.us</span> 🦅
+          </h1>
+          <p className="text-xl md:text-2xl text-yellow-300 font-semibold drop-shadow">Loading Patriotic Defense System...</p>
         </div>
       </div>
     );

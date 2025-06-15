@@ -54,11 +54,11 @@ export default function GameUI() {
       </div>
 
       {/* Mobile controls */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-4 pointer-events-auto md:hidden">
+      <div className="fixed bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 pointer-events-auto md:hidden z-50">
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
-                   transition-all duration-100 text-2xl shadow-lg"
+                   transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
             e.preventDefault();
             const event = new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true });
@@ -84,9 +84,9 @@ export default function GameUI() {
         </button>
         
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-red-400 active:bg-red-600 active:scale-95
-                   transition-all duration-100 text-2xl shadow-lg"
+                   transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
             e.preventDefault();
             const event = new KeyboardEvent('keydown', { key: ' ', bubbles: true });
@@ -112,9 +112,9 @@ export default function GameUI() {
         </button>
         
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
-                   transition-all duration-100 text-2xl shadow-lg"
+                   transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
             e.preventDefault();
             const event = new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true });

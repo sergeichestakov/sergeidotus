@@ -49,20 +49,20 @@ export default function StartScreen() {
         </div>
 
         {/* Instructions */}
-        <div className="bg-black bg-opacity-50 rounded-lg p-6 mb-8 border-2 border-yellow-400">
-          <h2 className="text-2xl font-bold text-yellow-300 mb-4">🎯 MISSION BRIEFING</h2>
-          <div className="grid md:grid-cols-2 gap-4 text-left">
+        <div className="bg-black bg-opacity-50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 border-2 border-yellow-400">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-300 mb-3 sm:mb-4">🎯 MISSION BRIEFING</h2>
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 text-left">
             <div>
-              <h3 className="text-red-400 font-bold mb-2">CONTROLS:</h3>
-              <ul className="text-white space-y-1">
+              <h3 className="text-red-400 font-bold mb-2 text-sm sm:text-base">CONTROLS:</h3>
+              <ul className="text-white space-y-1 text-sm sm:text-base">
                 <li>← → Arrow Keys: Move</li>
                 <li>SPACEBAR: Fire</li>
                 <li>M: Mute/Unmute</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-blue-400 font-bold mb-2">OBJECTIVE:</h3>
-              <ul className="text-white space-y-1">
+              <h3 className="text-blue-400 font-bold mb-2 text-sm sm:text-base">OBJECTIVE:</h3>
+              <ul className="text-white space-y-1 text-sm sm:text-base">
                 <li>Eliminate all threats</li>
                 <li>Protect American skies</li>
                 <li>Achieve freedom victory!</li>
@@ -81,11 +81,11 @@ export default function StartScreen() {
         )}
 
         {/* Start Button */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <button
             onClick={handleStart}
             className="bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 
-                     text-white font-bold text-2xl px-12 py-4 rounded-lg shadow-lg 
+                     text-white font-bold text-lg sm:text-xl md:text-2xl px-8 sm:px-10 md:px-12 py-3 sm:py-4 rounded-lg shadow-lg 
                      transform hover:scale-105 transition-all duration-200 
                      border-2 border-yellow-400 hover:border-yellow-300"
           >
@@ -95,8 +95,8 @@ export default function StartScreen() {
           <div>
             <button
               onClick={toggleMute}
-              className="bg-gray-700 hover:bg-gray-600 text-white font-bold px-6 py-2 rounded 
-                       transition-colors duration-200 border border-gray-500"
+              className="bg-gray-700 hover:bg-gray-600 text-white font-bold px-4 sm:px-6 py-2 rounded 
+                       transition-colors duration-200 border border-gray-500 text-sm sm:text-base"
             >
               {isMuted ? "🔇 UNMUTE" : "🔊 MUTE"}
             </button>
