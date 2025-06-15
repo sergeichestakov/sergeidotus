@@ -42,7 +42,7 @@ export default function GameUI() {
       </div>
 
       {/* Bottom controls */}
-      <div className="absolute top-20 left-4 pointer-events-auto">
+      <div className="absolute top-24 left-4 pointer-events-auto">
         <button
           onClick={toggleMute}
           className="bg-black bg-opacity-70 hover:bg-opacity-90 text-white font-bold 
