@@ -27,7 +27,7 @@ export class GameEngine {
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d')!;
-    this.player = new Player(400, 500);
+    this.player = new Player(400, 520);
     this.enemies = [];
     this.bullets = [];
     this.particles = [];
