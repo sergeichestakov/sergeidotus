@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eagle Strike - Patriotic Space Shooter | sergei.us</title>
+    <meta name="description" content="Defend America in this patriotic 2D space shooter! Control a majestic eagle and fight for freedom in the stars." />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(45deg, #1e3a8a, #dc2626, #1e3a8a);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: hidden;
+      }
+      
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #1e3a8a, #dc2626, #1e3a8a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        z-index: 1000;
+      }
+      
+      .star {
+        position: absolute;
+        background: white;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        animation: twinkle 2s infinite;
+      }
+      
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading" class="loading">
+      <div>
+        <div style="text-align: center;">
+          <h1 style="color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 0;">🦅 EAGLE STRIKE 🦅</h1>
+          <p style="color: #fbbf24; margin: 10px 0;">Loading Patriotic Defense System...</p>
+        </div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Add some animated stars to loading screen
+      function createStars() {
+        const loading = document.getElementById('loading');
+        for (let i = 0; i < 50; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.width = star.style.height = Math.random() * 10 + 5 + 'px';
+          star.style.animationDelay = Math.random() * 2 + 's';
+          loading.appendChild(star);
+        }
+      }
+      createStars();
+      
+      // Remove loading screen when app loads
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          if (loading) loading.style.display = 'none';
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
