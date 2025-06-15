@@ -41,8 +41,7 @@ export default function StartScreen() {
         {/* Title */}
         <div className="mb-8">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 drop-shadow-lg">
-            <span className="text-red-500">sergei</span>{" "}
-            <span className="text-white">.us</span> 🦅
+            <span className="text-red-500">sergei</span><span className="text-white">.us</span> 🦅
           </h1>
           <p className="text-xl md:text-2xl text-yellow-300 font-semibold drop-shadow">
             DEFEND AMERICA IN THE STARS
