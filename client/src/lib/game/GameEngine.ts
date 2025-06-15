@@ -119,6 +119,10 @@ export class GameEngine {
   };
 
   private update(deltaTime: number): void {
+    // Get fresh state data
+    const currentStats = useGameStats.getState();
+    const currentGameState = useGame.getState();
+    
     // Update player
     this.handleInput(deltaTime);
     this.player.update(deltaTime);
@@ -132,7 +136,7 @@ export class GameEngine {
       
       // Check if enemy reached the player area (lose life)
       if (enemy.y + enemy.height >= this.player.y) {
-        this.gameStats.loseLife();
+        currentStats.loseLife();
         this.audioState.playHit();
         
         // Create explosion particles
@@ -143,6 +147,8 @@ export class GameEngine {
           ['#FF0000', '#FF4500', '#FFD700']
         );
         this.particles.push(...explosionParticles);
+        
+        console.log(`Enemy reached player! Lives remaining: ${currentStats.lives - 1}`);
         
         return false; // Remove enemy
       }
@@ -165,9 +171,12 @@ export class GameEngine {
     // Check collisions
     this.checkCollisions();
 
-    // Check game over condition
-    if (this.gameStats.lives <= 0) {
-      this.gameState.end();
+    // Check game over condition - get fresh lives count
+    const freshStats = useGameStats.getState();
+    if (freshStats.lives <= 0) {
+      console.log("Game Over! Lives exhausted.");
+      currentGameState.end();
+      this.stop();
     }
 
     // Increase difficulty over time
@@ -212,6 +221,8 @@ export class GameEngine {
   }
 
   private checkCollisions(): void {
+    const currentStats = useGameStats.getState();
+    
     // Player bullets vs enemies
     for (let i = this.bullets.length - 1; i >= 0; i--) {
       const bullet = this.bullets[i];
@@ -222,7 +233,7 @@ export class GameEngine {
         
         if (bullet.collidesWith(enemy)) {
           // Enemy hit!
-          this.gameStats.addScore(enemy.getPoints());
+          currentStats.addScore(enemy.getPoints());
           
           // Create explosion particles
           const explosionParticles = Particle.createExplosion(
@@ -240,7 +251,7 @@ export class GameEngine {
           this.bullets.splice(i, 1);
           this.enemies.splice(j, 1);
           
-          console.log(`Enemy destroyed! Score: ${this.gameStats.score}`);
+          console.log(`Enemy destroyed! Score: ${currentStats.score}`);
           break;
         }
       }
@@ -252,7 +263,7 @@ export class GameEngine {
       
       if (enemy.collidesWith(this.player)) {
         // Player hit by enemy!
-        this.gameStats.loseLife();
+        currentStats.loseLife();
         
         // Create explosion particles
         const explosionParticles = Particle.createExplosion(
@@ -269,7 +280,7 @@ export class GameEngine {
         // Remove enemy
         this.enemies.splice(i, 1);
         
-        console.log(`Player hit! Lives remaining: ${this.gameStats.lives}`);
+        console.log(`Player hit by collision! Lives remaining: ${currentStats.lives - 1}`);
       }
     }
   }
