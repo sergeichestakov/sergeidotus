@@ -42,7 +42,7 @@ export default function GameUI() {
       </div>
 
       {/* Bottom controls */}
-      <div className="absolute bottom-4 left-4 pointer-events-auto">
+      <div className="absolute top-20 left-4 pointer-events-auto">
         <button
           onClick={toggleMute}
           className="bg-black bg-opacity-70 hover:bg-opacity-90 text-white font-bold 
@@ -84,9 +84,9 @@ export default function GameUI() {
           ←
         </button>
         
-        {/* Fire button - center top */}
+        {/* Fire button - center bottom */}
         <button
-          className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
+          className="fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-red-400 active:bg-red-600 active:scale-95
                    transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
