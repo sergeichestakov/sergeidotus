@@ -53,10 +53,11 @@ export default function GameUI() {
         </button>
       </div>
 
-      {/* Mobile controls */}
-      <div className="fixed bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 pointer-events-auto md:hidden z-50">
+      {/* Mobile controls - Split to avoid covering player */}
+      <div className="pointer-events-auto md:hidden z-50">
+        {/* Left movement button */}
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
+          className="fixed bottom-20 left-4 bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
                    transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
@@ -83,8 +84,9 @@ export default function GameUI() {
           ←
         </button>
         
+        {/* Fire button - center top */}
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
+          className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-red-400 active:bg-red-600 active:scale-95
                    transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
@@ -111,8 +113,9 @@ export default function GameUI() {
           🔥
         </button>
         
+        {/* Right movement button */}
         <button
-          className="bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
+          className="fixed bottom-20 right-4 bg-black bg-opacity-80 text-white font-bold px-4 py-3 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
                    transition-all duration-100 text-lg shadow-lg"
           onMouseDown={(e) => {
