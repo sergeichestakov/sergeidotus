@@ -1,11 +1,23 @@
 import { useGame } from "../../lib/stores/useGame";
 import { useGameStats } from "../../lib/stores/useGameStats";
 import { useAudio } from "../../lib/stores/useAudio";
+import { useMemo } from "react";
 
 export default function StartScreen() {
   const { start } = useGame();
   const { highScore } = useGameStats();
   const { toggleMute, isMuted } = useAudio();
+
+  // Pre-calculate star positions to prevent layout shifts
+  const stars = useMemo(() => {
+    return Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      fontSize: Math.random() * 10 + 5,
+      animationDuration: Math.random() * 3 + 2
+    }));
+  }, []);
 
   const handleStart = () => {
     console.log("Starting game...");
@@ -19,15 +31,15 @@ export default function StartScreen() {
         <div className="w-full h-full bg-gradient-to-br from-blue-800 via-red-700 to-blue-800" />
         {/* Stars pattern */}
         <div className="absolute inset-0">
-          {Array.from({ length: 50 }).map((_, i) => (
+          {stars.map((star) => (
             <div
-              key={i}
+              key={star.id}
               className="absolute text-white opacity-60"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                fontSize: `${Math.random() * 10 + 5}px`,
-                animation: `twinkle ${Math.random() * 3 + 2}s infinite`,
+                left: `${star.left}%`,
+                top: `${star.top}%`,
+                fontSize: `${star.fontSize}px`,
+                animation: `twinkle ${star.animationDuration}s infinite`,
               }}
             >
               ⭐
@@ -111,13 +123,7 @@ export default function StartScreen() {
         </div>
       </div>
 
-      {/* Add some CSS for the twinkle animation */}
-      <style jsx>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.2); }
-        }
-      `}</style>
+
     </div>
   );
 }
