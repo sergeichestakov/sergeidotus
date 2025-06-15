@@ -54,59 +54,86 @@ export default function GameUI() {
       </div>
 
       {/* Mobile controls */}
-      <div className="absolute bottom-4 right-4 flex space-x-2 pointer-events-auto md:hidden">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-4 pointer-events-auto md:hidden">
         <button
-          className="bg-black bg-opacity-70 text-white font-bold px-6 py-3 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
-                   transition-all duration-100"
+                   transition-all duration-100 text-2xl shadow-lg"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true });
+            document.dispatchEvent(event);
+          }}
+          onMouseUp={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keyup', { key: 'ArrowLeft', bubbles: true });
+            document.dispatchEvent(event);
+          }}
           onTouchStart={(e) => {
             e.preventDefault();
-            // Simulate arrow left key
-            const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true });
+            document.dispatchEvent(event);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
-            const event = new KeyboardEvent('keyup', { key: 'ArrowLeft' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keyup', { key: 'ArrowLeft', bubbles: true });
+            document.dispatchEvent(event);
           }}
         >
           ←
         </button>
         
         <button
-          className="bg-black bg-opacity-70 text-white font-bold px-6 py-3 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
                    border-2 border-red-400 active:bg-red-600 active:scale-95
-                   transition-all duration-100"
+                   transition-all duration-100 text-2xl shadow-lg"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keydown', { key: ' ', bubbles: true });
+            document.dispatchEvent(event);
+          }}
+          onMouseUp={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keyup', { key: ' ', bubbles: true });
+            document.dispatchEvent(event);
+          }}
           onTouchStart={(e) => {
             e.preventDefault();
-            // Simulate spacebar
-            const event = new KeyboardEvent('keydown', { key: ' ' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keydown', { key: ' ', bubbles: true });
+            document.dispatchEvent(event);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
-            const event = new KeyboardEvent('keyup', { key: ' ' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keyup', { key: ' ', bubbles: true });
+            document.dispatchEvent(event);
           }}
         >
           🔥
         </button>
         
         <button
-          className="bg-black bg-opacity-70 text-white font-bold px-6 py-3 rounded-lg 
+          className="bg-black bg-opacity-80 text-white font-bold px-8 py-4 rounded-lg 
                    border-2 border-blue-400 active:bg-blue-600 active:scale-95
-                   transition-all duration-100"
+                   transition-all duration-100 text-2xl shadow-lg"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true });
+            document.dispatchEvent(event);
+          }}
+          onMouseUp={(e) => {
+            e.preventDefault();
+            const event = new KeyboardEvent('keyup', { key: 'ArrowRight', bubbles: true });
+            document.dispatchEvent(event);
+          }}
           onTouchStart={(e) => {
             e.preventDefault();
-            // Simulate arrow right key
-            const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true });
+            document.dispatchEvent(event);
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
-            const event = new KeyboardEvent('keyup', { key: 'ArrowRight' });
-            window.dispatchEvent(event);
+            const event = new KeyboardEvent('keyup', { key: 'ArrowRight', bubbles: true });
+            document.dispatchEvent(event);
           }}
         >
           →
