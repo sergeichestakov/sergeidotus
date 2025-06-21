@@ -26,6 +26,20 @@ export default function StartScreen() {
 
   return (
     <div className="w-full h-full flex items-center justify-center relative">
+      {/* Home button */}
+      <div className="absolute top-4 right-4 z-20">
+        <a
+          href="https://sergei.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black bg-opacity-70 hover:bg-opacity-90 text-white font-bold 
+                   px-4 py-2 rounded-lg border border-gray-400 hover:border-white
+                   transition-all duration-200 flex items-center gap-2"
+        >
+          🏠 Home
+        </a>
+      </div>
+
       {/* Patriotic background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="w-full h-full bg-gradient-to-br from-blue-800 via-red-700 to-blue-800" />
